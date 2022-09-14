@@ -47,7 +47,8 @@ Sonuç olarak bakıldığında ise dashboard 20 sn lik bir gif ile ;<br>
 ## İnput alanı açarak shell üzerinden komut çalıştırıp çıktısını göster. !!Komutlar uygulamayı geliştirdiğin cihaz üzerinde çalışmalı!!
 
 Burada html içerine form alanımı oluşturdum ve django içerisinde request.method=="POST" olduğunda içerisinde işlemlere devam ettim. Burada site içerisinden kullanıcıdan aldığım inputu shell üzerinde çalıştırmayı hedefliyoruz bunun için subprocess kütüphanesini kullanıyorum. Html üzerinde request.POST.get('message') message id sine sahip olunan input area yı bana getiriyor daha sonrasında bu ifadeyi bir değişkene atıp subprocess.run(["powershell", "-Command", değişkene], capture_output=True) ile shell çıktısını alıyorum.Burada çıktı üzerinde ilk 7 satıra baktığımda column name ve info vardı bu yüzden 7. satırdan başlattım yazdırmaya. Daha sonrasında elde edilen çıktıyı Html e geri gönderdim ve alt tarafta gösterilmesini sağladım.<br>
-Buradaki tek eksiğim satır bazında yazdırmaktı fakat başarılı olamadım.Çıktı olarak kontrol sağlayıp eğer komutun bir çıktısı varsa yazdırıyor.<br>![20220914_211254](https://user-images.githubusercontent.com/63595177/190230990-b6c34c21-82f0-4135-a195-2734331202b2.gif)
+Buradaki tek eksiğim satır bazında yazdırmak ve ajax üzerinde success de küçük bir dögü ile bunu başarıyorum.Çıktı olarak kontrol sağlayıp eğer komutun bir çıktısı varsa yazdırıyor.<br>![image](https://user-images.githubusercontent.com/63595177/190246961-982a6ad2-36f3-4dd7-85e1-57f8b2b0acf7.png)
+
 
 ## Çalıştırılan komut ve çıktılarını veritabanı üzerinde kayıt et
 views.py içerisinde oluşturmuş olduğum model i kütüphane olarak kaydediyorum. Daha sonrasında models.py içerisinde değişken isimlerine göre yani p=viewer_cmd(cmd_input=degisken_giris,cmd_output=degisken_cıkıs) olarak veri tabanına ekleme yapıyoruz. Burada null değer olup olmadığını veritabanına eklemeden önce kontrol ediyoruz. <br>

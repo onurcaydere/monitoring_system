@@ -26,7 +26,7 @@ Models.py içerisinde oluşturacağım scheması belirliyorum projemde shell üz
  Sonrasında site içerisinde adminpage içerisinde bu veritabanını görmeyi istediğim için admin.py içerisinde ;<br>
  ![image](https://user-images.githubusercontent.com/63595177/190195596-37779b92-5abf-4903-ac67-0da17ed6c789.png)<br>
  İşlemleri gerçekleştiriyorum.<br>
-bu işlemleri bitirdikten sonra terminal üzerinde bu değişikleri djangoya da göstermem gerekiyor ve sırasıyla "python manage.py makemigrations" "python manage.py migrations" komutlarını çalıştırıp bu değişikleri gösteriyorum. <br>
+bu işlemleri bitirdikten sonra terminal üzerinde bu değişikleri djangoya da göstermem gerekiyor ve sırasıyla "python manage.py makemigrations" "python manage.py migrations" komutlarını çalıştırıp database içerisinde djangonun tablolarını ve models içerisinde benim oluşturduğum tabloyu görebiliyorum.<br>
 ![image](https://user-images.githubusercontent.com/63595177/190195801-df76ea9c-b559-4ab3-a248-838b4c15c7d8.png)<br>
 
 ##  Ekrandaki verileri uygulamayı geliştirdiğin cihaz üzerinden çekme

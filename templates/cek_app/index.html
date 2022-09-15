@@ -1,0 +1,265 @@
+{% extends "cek_app/base.html" %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% load tags_custom %}
+
+
+{% block content %}
+
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Dashboard</h1>
+    </div>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col" >
+        <div class="fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+            <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+          </svg>><strong style="vertical-align: inherit; font-size: 30px;">
+          İşlemci
+        </strong></div>
+        <div class="card" style="width: 18rem;"  id="here">
+          <div class="card-body" id="step1Content" >
+            <strong><p class="card-text">Yük Ortalaması</p></strong>
+            <p >{{get_avg}}</p>
+            <hr> 
+            <strong><p class="card-text">Sistem * Kullanıcı</p></strong>
+            <p >%{{cpu.user}} &#183 %{{cpu.system}}</p>
+
+            <hr> 
+            <strong> <p class="card-text">Kullanılabilir</p></strong>
+            <p>% {{cpu.idle}}</p>
+            <hr> 
+            <strong> <p class="card-text">Çekirdek</p></strong>
+            <p>{{core}}</p>
+
+                          </div>
+        </div>
+       
+      </div>
+      <div class="feature col" id="here1">
+        <div class="fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+            <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1Zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5Zm5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5Zm4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4ZM2 10v2H1v-2h1Zm2 0v2H3v-2h1Zm2 0v2H5v-2h1Zm3 0v2H8v-2h1Zm2 0v2h-1v-2h1Zm2 0v2h-1v-2h1Zm2 0v2h-1v-2h1Z"></path>
+          </svg><strong style="vertical-align: inherit; font-size: 30px;">
+          Bellek</strong></div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <strong><p class="card-text">Toplam</p></strong>
+            <p>{{memory.total|filesizeformat}}</p>
+
+            <hr> 
+            <strong><p class="card-text">Kullanılabilir</p></strong>
+            <p>{{memory.available|filesizeformat}}</p>
+
+            <hr> 
+            <strong> <p class="card-text">Önbellek</p></strong>
+            <p>{{cached}}</p>
+
+            <hr> 
+
+            <strong> <p class="card-text">Kullanılan</p></strong>
+
+              <div class="progress" id="progres_bar1">
+
+                {% if memory.percent >= 60 and memory.percent < 80 %}
+                  <div class="progress-bar bg-warning" role="progressbar" id="progBar" aria-label="Info example" aria-valuenow="{{ memory.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ memory.percent }}%">{{ progress }}>
+                  <span class="sr-only">{{memory.percent}}% Mem</span>
+                  <strong><p style="color: black;">{{memory.used|filesizeformat}} &#183 %{{memory.percent}}</p></strong>
+                {% elif memory.percent >= 80 %}
+                  <div class="progress-bar bg-danger" role="progressbar" aria-label="Info example" aria-valuenow="{{ memory.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ memory.percent }}%">{{ progress }}>
+                  <span class="sr-only">{{memory.percent}}% Mem</span>
+                  <strong><p style="color: black;">{{memory.used|filesizeformat}} &#183 %{{memory.percent}}</p></strong>
+                {% else %}
+                <div class="progress-bar bg-success" role="progressbar" aria-label="Info example" aria-valuenow="{{ memory.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ memory.percent }}%">{{ progress }}>
+                <span class="sr-only">{{memory.percent}}% Mem</span>
+                <strong><p style="color: black;">{{memory.used|filesizeformat}} &#183 %{{memory.percent}}</p></strong>
+
+                {%endif%}
+                </div>
+              </div>
+              
+
+
+          </div>
+        </div>
+      </div>
+      <div class="feature col" id="here2">
+        <div class="fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16">
+<path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"></path>
+<path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26 1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"></path>
+</svg><strong style="vertical-align: inherit; font-size: 30px;">
+          Takas Bellek
+       </strong></div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <td>                 
+               <strong><p class="card-text">Toplam</p></strong>
+               <p>{{ swap_mem.total|filesizeformat }}</p>
+               <hr> 
+               <strong><p class="card-text">Kullanılabilir</p></strong>
+               <p>{{ swap_mem.free|filesizeformat }}</p>
+
+               <hr> 
+               <strong> <p class="card-text">Swapped in * out</p></strong>
+               <p>{{ swap_mem.sin|filesizeformat }} &#183 {{ swap_mem.sout|filesizeformat }}</p>
+
+               <hr> 
+
+               <strong> <p class="card-text">Kullanılan</p></strong>
+
+              <div class="progress">
+                {% if swap_mem.percent >= 60 and swap_mem.percent < 80 %}
+                  <div class="progress-bar bg-warning" role="progressbar" aria-label="Info example"  aria-valuenow="{{ swap_mem.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ swap_mem.percent }}%">{{ progress }}>
+                  <span class="sr-only">{{swap_mem.percent}}% Mem</span>
+                  <strong><p style="color: black;">{{swap_mem.used|filesizeformat}} &#183 %{{swap_mem.percent}}</p></strong>
+                {% elif swap_mem.percent >= 80 %}
+                  <div class="progress-bar bg-danger" role="progressbar" aria-label="Info example"  aria-valuenow="{{ swap_mem.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ swap_mem.percent }}%">{{ progress }}>
+                  <span class="sr-only">{{swap_mem.percent}}% Mem</span>
+
+                  <strong><p style="color: black;">{{swap_mem.used|filesizeformat}} &#183 %{{swap_mem.percent}}</p></strong>
+
+                {% else %}
+                <div class="progress-bar bg-success" role="progressbar" aria-label="Info example"  aria-valuenow="{{ swap_mem.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ swap_mem.percent }}%">{{ progress }}>
+                <span class="sr-only">{{swap_mem.percent}}% Mem</span>
+                <strong><p style="color: black;">{{swap_mem.used|filesizeformat}} &#183 %{{swap_mem.percent}}</p></strong>
+
+                {%endif%}
+                </div>
+              </div>
+
+            </td>
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h5>Diskler</h5>
+     <br/>
+      
+      <div class="btn-toolbar mb-2 mb-md-0">
+      </div>
+    </div>
+    <div id="here3">
+      {% for key, value in disks.items %}
+
+      <tr>
+        <td><strong>Yerel Disk {{ key }}</strong></td>
+
+        <td>
+          <div class="progress">
+            <div class="progress-bar bg-success" id="progressBar1" role="progressbar" aria-valuenow="{{ value.disk_usege.percent }}" aria-valuemin="0" aria-valuemax="100"  style="width:{{ value.disk_usege.percent }}%">{{ progress }}%>
+              <br>
+              <strong><p style="color: black;">%{{value.disk_usege.percent}}</p></strong>
+            </div>
+          </div>
+
+        </td>
+        <td><strong>{{ value.fstype}} {{ value.disk_usege.total|filesizeformat}} {{value.disk_usege.free|filesizeformat}}</strong></td>
+      </tr>
+      <hr> 
+      {% endfor %}
+
+    </div>
+
+  
+        <h3 class="fs-2"></h3>
+        <h5>Disk I/O</h5>
+      <div class="table-responsive">
+        <table class="table table-striped  table-bordered table-xxl"  id="yenile">
+          <thead>
+            <tr>
+              <th scope="col">İsim</th>
+              <th scope="col">Okunan</th>
+              <th scope="col">Okunan Sayi</th>
+              <th scope="col">Okunan Zaman</th>
+              <th scope="col">Yazilan</th>
+              <th scope="col">Yazilan Sayi</th>
+              <th scope="col">Yazilan Zaman</th>
+
+            </tr>
+          </thead>
+
+          <tbody >
+            {% for key, value in physical_info.items %}
+            <tr>
+
+
+
+              <td>{{key}}</td>
+              <td>{{value.read_bytes|filesizeformat}}</td>
+              <td>{{value.read_count}}</td>
+              <td>{{value.read_time|reverse_date}}</td>
+              <td>{{value.write_bytes|filesizeformat}}</td>
+              <td>{{value.write_count}}</td>
+              <td>{{value.write_time|reverse_date}}</td>
+              
+            </tr>
+            {%endfor%}
+
+
+                          </tbody>
+      </table>
+
+    </div>
+    <hr size="2">
+    <h3>Shell Alanı</h3>
+    <form method="POST" id="post-form">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="message"  placeholder="Command">
+      </div>
+      <div class="form-group">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p id="h5Sınıfı"></p><br><hr>
+      <div>
+        <ul class="platformsList"></ul>
+    </div>
+
+    </form>
+
+
+
+    
+    <h2>Database</h2>
+    <div class="table-responsive">
+      <table class="table table-striped  table-bordered table-xxl" >
+        <thead>
+          <tr>
+            <th scope="col">İslem</th>
+            <th scope="col">Sonuc</th>
+          </tr>
+        </thead>
+
+        <tbody >
+          {% for value in show_tables %}
+          <tr>
+            <td>{{value.cmd_input}}</td>
+            <td>{{value.cmd_output}}</td>
+
+          </tr>
+          {%endfor%}
+
+
+                        </tbody>
+    </table>
+  </div>
+  </main>
+</div>
+</div>
+
+
+
+
+
+</body> 
+
+{% endblock content %}

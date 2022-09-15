@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{% load static %}
+  {% load tags_custom %}
+
+
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>
+    {% block title %}
+    {% endblock title %}
+    </title>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script>
+  
+ $(document).on('submit', '#post-form', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/',
+            data: {
+                message: $('#message').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+
+            },
+            success:function(data){
+                const myArray = data.split(";");
+                let buffer ="";
+                $.each(myArray , function (index, value){
+                  if (value == '' || value==' '){
+                    console.log("Boş İndis"+index)
+                                      
+                  }  
+                  else {
+                    buffer += '<li>' +index +" : "+" "+myArray[index]+'</li>';
+                  }
+                    
+              });
+              $('.platformsList').html(buffer);
+
+            }
+
+        });
+    });
+      </script>
+    <script> 
+      $(document).ready(function(){
+      setInterval(function(){
+            $("#here").load(window.location.href + " #here" );
+      }, 3000);
+      });
+      $(document).ready(function(){
+      setInterval(function(){
+            $("#here1").load(window.location.href + " #here1" );
+
+      }, 3300);
+      });
+      $(document).ready(function(){
+      setInterval(function(){
+            $("#here2").load(window.location.href + " #here2" );
+
+      }, 3300);
+      });
+      $(document).ready(function(){
+      setInterval(function(){
+            $("#here3").load(window.location.href + " #here3" );
+
+      }, 3400);
+      });
+      $(document).ready(function(){
+      setInterval(function(){
+            $("#yenile").load(window.location.href + " #yenile" );
+
+      }, 3400);
+      });
+
+
+      </script>
+      
+
+  </head>
+  <body>
+    
+      {% block content %}
+
+      {% endblock content %}
+    </body>
+
+  
+
+</html>

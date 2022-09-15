@@ -8,6 +8,8 @@
 * Çalıştırılan komut ve çıktılarını veritabanı üzerinde kayıt et.
 * Daha önce çalışmış komut ve çıktılarını gösterebileceğin bir alanda dashboarda ekle.
 
+
+
 ## Django Projesi Oluştur
 Burada ilk olarak vs code üzerinde django projemi oluşturuyorum."django-admin startproject cekino".<br>
 Daha sonrasında bir application ekliyorum "python manage.py startapp cek_app".<br>
@@ -59,8 +61,15 @@ views.py içerisinde oluşturmuş olduğum model i kütüphane olarak kaydediyor
 Bu işlemide views.py içerisinde models_func.objects.all().orderby('-id').[:10]
 Son yapılan 10 kayıtı tabloya ekliyorum ve gösteriyoruz.
 
-#### Not :
+### Not :
 * Index sayfamda kullanılan tüm fonksiyonlar base.html içerisindedir.
+
+# Kaynakça;
+* https://www.djangoproject.com/
+* https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
+* https://psutil.readthedocs.io/en/latest/
+* https://www.w3schools.com/jsref/met_win_setinterval.asp
+* https://getbootstrap.com/
 
 
 

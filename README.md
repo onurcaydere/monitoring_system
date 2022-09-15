@@ -18,7 +18,8 @@ Bu işlemler bittikten sonra oluşturacağım site için bir template oluşturuy
 
 ## Oluşturulan projede postgresql ile connection kur
 Bu işlem için ilk önce postgresql'i bilgisayarıma kurdum. <br>
-Daha sonra Django projem içerisinde settings.py içerisinde postgresql i ayarlamam gerekiyordu.<br>![image](https://user-images.githubusercontent.com/63595177/190194294-8b38e0bf-7a57-4574-893d-6647d6cd7ad9.png)<br>
+Daha sonra Django projem içerisinde settings.py içerisinde postgresql i ayarlamam gerekiyordu.<br>
+![image](https://user-images.githubusercontent.com/63595177/190194294-8b38e0bf-7a57-4574-893d-6647d6cd7ad9.png)<br>
 Ayarlamadan önce postgresql içerisinde deneme adında bir database oluşturuyorum.<br>
 Daha sonrasında <br>![image](https://user-images.githubusercontent.com/63595177/190194500-26625230-89e9-4281-a7cf-e2a8443a5d4c.png)<br>
 settings.py içerisinde DATABASES bölümünde yukarıdaki gibi database name, password,user,host ve port değerlerini veriyorum.<br>
@@ -58,7 +59,7 @@ views.py içerisinde oluşturmuş olduğum model i kütüphane olarak kaydediyor
 ![image](https://user-images.githubusercontent.com/63595177/190231871-eddb46a5-ad03-44e5-abc9-72eb0bfb077f.png)<br>
 
 ##  Daha önce çalışmış komut ve çıktılarını gösterebileceğin bir alanda dashboarda ekle.
-Bu işlemide views.py içerisinde models_func.objects.all().orderby('-id').[:10]
+Bu işlemide views.py içerisinde models_func.objects.all().orderby('-id').[:10](id leri tersten sıralayıp ilk 10 değeri bana geri döndürüyor.)
 Son yapılan 10 kayıtı tabloya ekliyorum ve gösteriyoruz.
 
 ### Not :

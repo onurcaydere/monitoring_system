@@ -21,8 +21,8 @@ Bu işlem için ilk önce postgresql'i bilgisayarıma kurdum. <br>
 Daha sonra Django projem içerisinde settings.py içerisinde postgresql i ayarlamam gerekiyordu.<br>
 ![image](https://user-images.githubusercontent.com/63595177/190194294-8b38e0bf-7a57-4574-893d-6647d6cd7ad9.png)<br>
 Ayarlamadan önce postgresql içerisinde deneme adında bir database oluşturuyorum.<br>
-Daha sonrasında <br>![image](https://user-images.githubusercontent.com/63595177/190194500-26625230-89e9-4281-a7cf-e2a8443a5d4c.png)<br>
-settings.py içerisinde DATABASES bölümünde yukarıdaki gibi database name, password,user,host ve port değerlerini veriyorum.<br>
+![image](https://user-images.githubusercontent.com/63595177/190194500-26625230-89e9-4281-a7cf-e2a8443a5d4c.png)<br>
+Daha sonrasında settings.py içerisinde DATABASES bölümünde yukarıdaki gibi database name, password,user,host ve port değerlerini veriyorum.<br>
 Models.py içerisinde oluşturacağım scheması belirliyorum projemde shell üzerinde input ve output bilgilerini tutmam gerekiyor bu yüzden;<br>
 ![image](https://user-images.githubusercontent.com/63595177/190195344-31c140c7-63fc-47a3-bf5b-470a0992148e.png)<br>
  Bu şekilde yapıyorum.<br>

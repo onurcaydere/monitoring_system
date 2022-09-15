@@ -59,7 +59,8 @@ views.py içerisinde oluşturmuş olduğum model i kütüphane olarak kaydediyor
 Bu işlemide views.py içerisinde models_func.objects.all().orderby('-id').[:10]
 Son yapılan 10 kayıtı tabloya ekliyorum ve gösteriyoruz.
 
-
+#### Not :
+* Index sayfamda kullanılan tüm fonksiyonlar base.html içerisindedir.
 
 
 
